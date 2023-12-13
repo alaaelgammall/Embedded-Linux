@@ -1,0 +1,19 @@
+#!/bin/bash 
+sudo useradd Elaa 
+sudo groupadd ElGammal 
+if grep -q Elaa /etc/passwd ; then 
+echo "User Exists"
+else
+sudo useradd Elaa 
+echo "Added User"
+fi
+if grep -q ElGammal /etc/group ; then
+echo "Group Exists"
+else 
+sudo groupadd ElGammal 
+echo "GroupAdded"
+fi 
+ 
+sudo usermod -aG ElGammal Elaa
+
+getent group ElGammal
